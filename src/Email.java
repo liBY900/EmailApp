@@ -18,23 +18,20 @@ public class Email {
     public Email(String firstname, String lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
-        System.out.println("EMAIL CREATED: " + this.firstname + " " + this.lastname);
 
         this.department = setDepartment();
-        System.out.println("Department: "+ this.department);
 
         this.password = randomPassword(defaultPasswordlength);
         System.out.println("Your password is "+ this.password);
 
         email = firstname.toLowerCase()+ "." + lastname.toLowerCase() + "@" + department+"."+companySuffix;
-        System.out.println("Your email : " + email);
 
     }
 
     // ask for the department
 
     private String setDepartment() {
-        System.out.println("Department Codes\n1 for Sales\n2 for Development\n3for Accounting\n0 for none\nEnter department code:");
+        System.out.println("New worker: " +firstname+" .Department Codes\n1 for Sales\n2 for Development\n3for Accounting\n0 for none\nEnter department code:");
         Scanner scanner = new Scanner(System.in);
         int depchoice = scanner.nextInt();
         if (depchoice == 1){
@@ -79,5 +76,12 @@ public class Email {
     }
     public String getPassword(){
         return password;
+    }
+    public String showinfo(){
+        return "Display name: " + firstname+" "+lastname+
+                "\nDepartment: " + department+
+                "\nCompany email: "+email +
+                "\nMailbox capacity: "+ mailboxcapacity+"mb";
+
     }
 }
